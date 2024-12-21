@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@tailwind base;
+@layer base {
+  :root {
+    --color-default: #578597;
+    --color-pure: #FFFFFF;
+    --color-medium-gray: #51656D;
+    --color-dark-gray: #3B4042;
+    --color-darker-dark-gray: #252F33;
+    --color-dark: #252F33;
+    --color-blue-20: #4FA1C2;
+    --color-light-gray: #D3D3D3;
+    --color-medium-light-gray: #A9A9A9;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
