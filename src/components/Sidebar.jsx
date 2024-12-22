@@ -16,9 +16,9 @@ const navItems = [
     { icon: Ico6, href: "/Page6" },
 ];
 
-function Sidebar() {
+function Sidebar({className}) {
     return (
-        <div className="flex flex-col bg-[#4FA1C1] items-center rounded-r-3xl h-full">
+        <div className={`flex flex-col bg-[#4FA1C1] items-center rounded-r-3xl  ${className}`}>
             <Square />
             <nav className="flex flex-col justify-center items-center h-full w-full gap-6 mt-12">
                 {navItems.map((item, index) => (

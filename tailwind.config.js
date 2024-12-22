@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'items-bg': "url('/src/assets/itemsBg.png')",
+      },
+
       colors: {
         default: 'var(--color-default)',
         pure: 'var(--color-pure)',

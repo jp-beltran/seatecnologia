@@ -1,5 +1,5 @@
 import IcoItem from "./IcoItem";
-import LineItems from "../assets/lineItems.svg"
+import LineItems from "../assets/line_items.svg"
 
 const arrIcoItems =[
     {icon: IcoItem, title: "Item 1"},
@@ -15,18 +15,19 @@ const arrIcoItems =[
 
 function Items() {
     return (  
-        <div className="flex justify-start items-center p-6  w-full h-[156px] bg-white rounded-[20px] mb-8 relative">
+        <div className="flex justify-start items-center p-6  w-6/7 h-[156px] bg-white rounded-[20px] mb-8 relative ">
                 <div className=" flex flex-row justify-start items-center w-full h-full z-10 absolute " >
                     {arrIcoItems.map((item, index) => (
-                        <div key={index} className="flex items-center">
+                        <div key={index} className="flex flex-col items-center ml-12">
                             <item.icon />
+                            <h2 className=" text-[color:var(--Dark,#272F33)] text-center  text-md font-medium">Concluído</h2>
                         </div>
                     ))}
                     
                 </div>
 
-                <div className="flex flex-row justify-start items-center w-full h-full z-0 absolute">
-                    <img src={LineItems} alt="" className="mx-24 w-max"/>
+                <div className="flex flex-row justify-start items-top w-full h-full z-0 absolute -translate-y-6">
+                    <img src={LineItems} alt="" className=" ml-20 w-[1027px] "/>
                 </div>
 
  

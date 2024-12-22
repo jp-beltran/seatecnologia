@@ -3,6 +3,8 @@
 @tailwind base;
 @layer base {
   :root {
+    font-family: "Ubuntu", serif;
+
     --color-default: #578597;
     --color-pure: #FFFFFF;
     --color-medium-gray: #51656D;
