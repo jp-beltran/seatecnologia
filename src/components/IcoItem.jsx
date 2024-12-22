@@ -14,3 +14,5 @@ function IcoItems() {
         </div>
     );
 }
+
+export default IcoItems;
