@@ -17,5 +17,9 @@
   }
 }
 
+.custom-select {
+  width: 100%; /* Define a largura do Select */
+}
+
 @tailwind components;
 @tailwind utilities;

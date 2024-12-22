@@ -15,7 +15,7 @@ const arrIcoItems =[
 
 function Items() {
     return (  
-        <div className="flex justify-start items-center p-6  w-6/7 h-[156px] bg-white rounded-[20px] mb-8 relative ">
+        <div className="flex justify-start items-center p-6  w-[1370px] h-[156px] bg-white rounded-[20px] mb-8 relative ">
                 <div className=" flex flex-row justify-start items-center w-full h-full z-10 absolute " >
                     {arrIcoItems.map((item, index) => (
                         <div key={index} className="flex flex-col items-center ml-12">

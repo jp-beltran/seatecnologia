@@ -1,16 +1,16 @@
 import React from "react";
-import { ConfigProvider, DatePicker, Form, Input, Radio, Select,  } from "antd";
+import { ConfigProvider, DatePicker, Form, Input, Radio, Select, Typography } from "antd";
 
 function EmployeeDetailsForm() {
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorBorder: "#649FBF", // Cor da borda padrão
-          borderRadius: 8,        // Raio da borda
-          colorPrimary: "#649FBF", // Cor primária (aplicada no Radio ao selecionar)
-          controlOutline: "#649FBF", // Cor da borda no foco
-          controlBorderWidth: 2,  // Espessura da borda
+          colorBorder: "#649FBF", 
+          borderRadius: 8,       
+          colorPrimary: "#649FBF", 
+          controlOutline: "#649FBF", 
+          controlBorderWidth: 2,  
         },
       }}
     >
@@ -18,30 +18,18 @@ function EmployeeDetailsForm() {
         <Form className="flex flex-row w-full justify-between gap-8">
           {/* Primeira Coluna */}
           <div className="flex flex-col items-start justify-start gap-4 w-1/2">
+            
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  Nome
-                </span>
-              }
               name="name"
               className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
             >
-              <Input placeholder="Digite o nome" />
+              <Typography.Title level={5}>Nome</Typography.Title>
+              <Input placeholder="Digite o nome" className="w-full" />
             </Form.Item>
 
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  CPF
-                </span>
-              }
               name="cpf"
               className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
               rules={[
                 { required: true, message: "Por favor, insira o CPF!" },
                 {
@@ -50,6 +38,9 @@ function EmployeeDetailsForm() {
                 },
               ]}
             >
+                <Typography.Title level={5}>
+                  CPF
+                </Typography.Title>
                 <Input
                     mask="999.999.999-99"
                     placeholder="Digite o CPF"
@@ -59,15 +50,8 @@ function EmployeeDetailsForm() {
             </Form.Item>
 
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  RG
-                </span>
-              }
               name="rg"
               className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
               rules={[
                 { required: true, message: "Por favor, insira o RG!" },
                 {
@@ -76,6 +60,7 @@ function EmployeeDetailsForm() {
                 },
               ]}
             >
+                <Typography.Title level={5}> RG </Typography.Title>
                 <Input
                     mask="9.999.999"
                     placeholder="Digite o RG"
@@ -86,36 +71,22 @@ function EmployeeDetailsForm() {
           </div>
 
           {/* Segunda Coluna */}
-          <div className="flex flex-col items-start justify-start gap-4 w-1/2">
+          <div className="flex flex-col items-start justify-start gap-4 w-1/2 mt-3">
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  Sexo
-                </span>
-              }
               name="gender"
-              className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
-              
             >
-              <Radio.Group>
+              <Typography.Title level={5}>Gênero</Typography.Title>
+              <Radio.Group className="">
                 <Radio value="Masculino">Masculino</Radio>
                 <Radio value="Feminino">Feminino</Radio>
               </Radio.Group>
             </Form.Item>
 
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  Data de Nascimento
-                </span>
-              }
               name="birthDate"
               className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
             >
+              <Typography.Title level={5}>Data de Nascimento</Typography.Title>
               <DatePicker 
                 placeholder="Digite a data de nascimento" 
                 style={{
@@ -129,16 +100,10 @@ function EmployeeDetailsForm() {
             </Form.Item>
 
             <Form.Item
-              label={
-                <span className="text-sm font-medium text-[color:var(--Dark,#272F33)]">
-                  Cargo
-                </span>
-              }
               name="role"
               className="w-full"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
             >
+                <Typography.Title level={5}>Cargo</Typography.Title>
                 <Select placeholder="Digite o cargo" >
                     <Select.Option value="1">Operador de máquinas</Select.Option>
                     <Select.Option value="2">Soldador</Select.Option>
