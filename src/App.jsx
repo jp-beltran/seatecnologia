@@ -5,9 +5,10 @@ import bgElement from "./assets/bg_element.svg"; // Certifique-se de que a impor
 
 function App() {
   return (
-    <div className="relative bg-[#DBDBDB] min-h-screen">
-      <RouterProvider router={router} />
-      <img src={bgElement} alt="Background Element" className="absolute bottom-0 right-0 w-auto h-auto" />
+    <div className="relative bg-[#DBDBDB] min-h-screen ">
+      <img src={bgElement} alt="Background Element" className="absolute bottom-0 right-0 w-auto h-auto z-0" />
+      <RouterProvider router={router} className="z-1"/>
+      
     </div>
   );
 }

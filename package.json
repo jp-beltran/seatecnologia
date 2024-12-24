@@ -7,16 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
+    "@hookform/resolvers": "^3.9.1",
+    "@reduxjs/toolkit": "^2.5.0",
     "@tailwindcss/vite": "^4.0.0-beta.8",
     "antd": "^5.22.5",
+    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
     "react-input-mask": "^2.0.4",
-    "react-router-dom": "^7.0.2"
+    "react-router-dom": "^7.0.2",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -32,5 +38,10 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0-beta.8",
     "vite": "^6.0.3"
-  }
+  },
+  "description": "Este projeto implementa um formulário para adicionar funcionários. O formulário inclui campos para verificar se o funcionário está ativo, inserir detalhes pessoais, preencher informações sobre EPIs e anexar atestados médicos. É construído com Ant Design, React e utiliza configurações personalizadas via `ConfigProvider`. 🎨✨📋",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

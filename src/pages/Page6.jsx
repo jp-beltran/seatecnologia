@@ -5,7 +5,7 @@ function Page6() {
     return (  
         <div className="flex flex-row bg-dark-gray w-screen h-screen">
             <Sidebar className="h-full"/>
-            <div className="flex flex-col justify-start align-middle items-start w-full px-8 py-6">
+            <div className="flex flex-col justify-start align-middle items-start w-full px-8 py-6 z-1">
                <ComingSoon/>
                <h1>pg6</h1>
                <img src={bgElement} alt="" className="right-0 bottom-0 absolute"/>

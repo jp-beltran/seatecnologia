@@ -1,9 +1,9 @@
-import back_arrow from '../assets/back_arrow.svg';
-import { ConfigProvider, Form, Button } from 'antd';
-import IsActive from './IsActive';
-import EpiForm from './EpiForm';
-import EmployeeDetailsForm from './EmployeeDetailsForm';
-import MedicalCertificate from './MedicalCertificate';
+import { ConfigProvider, Form, Button } from "antd";
+import IsActive from "./IsActive";
+import EpiForm from "./EpiForm";
+import EmployeeDetailsForm from "./EmployeeDetailsForm";
+import MedicalCertificate from "./MedicalCertificate";
+import Header from "./Header";
 
 function AddEmployeeForm() {
     return (
@@ -26,14 +26,8 @@ function AddEmployeeForm() {
                 },
             }}
         >
-            <div className="w-1/2 bg-white rounded-3xl">
-                {/* Header */}
-                <header className="bg-[#4FA1C1] w-full h-14 flex justify-start items-center rounded-t-3xl px-6 py-3 gap-4">
-                    <img src={back_arrow} alt="Voltar" />
-                    <h1 className="text-3xl text-white">Adicionar Funcionário</h1>
-                </header>
-
-                {/* Form */}
+            <div className="w-full bg-white rounded-3xl">
+                <Header title="Adicionar Funcionário" />
                 <div className="p-6">
                     <Form className="flex flex-col gap-3">
                         <IsActive />
