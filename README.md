@@ -37,35 +37,6 @@ Formulário para seleção de atividades e EPIs:
 - Campo de entrada para número do CA.
 - Botão para adicionar atividade com largura total. 🛠️
 
-## ConfigProvider
-O `ConfigProvider` é usado para personalizar os seguintes aspectos:
-- Cor primária (`#649FBF`).
-- Bordas arredondadas com raio de 10px.
-- Cor do texto, borda e fundo dos botões.
-- Estilização para hover no botão (`#4FA1C1`). 🎨
-
-### Exemplo de Configuração de Tema
-```javascript
-<ConfigProvider
-    theme={{
-        token: {
-            colorPrimary: "#649FBF",
-            borderRadius: 10,
-            colorBorder: "#649FBF",
-            colorBgContainer: "transparent",
-        },
-        components: {
-            Button: {
-                colorBgContainer: "transparent",
-                borderColor: "#649FBF",
-                colorText: "#649FBF",
-                colorPrimaryHover: "#4FA1C1",
-                borderWidth: 2,
-            },
-        },
-    }}
->
-```
 
 ## Requisitos
 
@@ -77,7 +48,7 @@ O `ConfigProvider` é usado para personalizar os seguintes aspectos:
 
 1. Clone o repositório: 📂
 ```bash
-git clone https://github.com/seu-usuario/add-employee-form.git
+git clone https://github.com/jp-beltran/seatecnologia
 ```
 
 2. Instale as dependências: 💾
@@ -95,21 +66,6 @@ npm start
 http://localhost:3000
 ```
 
-## Estrutura de Arquivos
-```plaintext
-src/
-├── assets/
-│   └── back_arrow.svg
-├── components/
-│   ├── AddEmployeeForm.js
-│   ├── IsActive.js
-│   ├── EmployeeDetailsForm.js
-│   ├── EpiForm.js
-│   ├── MedicalCertificate.js
-│   └── SelectActivity.js
-├── App.js
-└── index.js
-```
 
 ## Contribuição
 
