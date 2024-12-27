@@ -1,4 +1,5 @@
-import IcoItem from "./IcoItem";
+import { useSelector } from "react-redux";
+import IcoItems from "./IcoItem";
 import LineItems from "../assets/line_items.svg";
 
 const arrIconItems = [
@@ -14,26 +15,37 @@ const arrIconItems = [
 ];
 
 function Items() {
-    const step = 4;
+    const currentStep = useSelector((state) => state.steps.currentStep);
 
     return (
-        <div className="flex justify-start items-center p-6  w-full h-[156px] bg-white rounded-[20px] mb-8 relative ">
-            <div className=" flex flex-row justify-start w-full h-full z-10 absolute mt-6">
+        <div className="flex justify-start items-top p-6 w-full min-h-[200px] bg-white rounded-[20px] mb-8 relative overflow-y-hidden lg:overflow-x-hidden md:overflow-x-scroll">
+            <div className="flex flex-row justify-start items-top w-full h-full z-10 relative mt-6">
                 {arrIconItems.map((item, index) => (
                     <div
                         key={item.title}
-                        className="flex flex-col items-center ml-12"
+                        className="flex flex-col items-top ml-12"
                     >
-                        <IcoItem title={item.title} />
-                        <h2 className=" text-[color:var(--Dark,#272F33)] text-center  text-md font-medium">
-                            {index < step - 1 ? "Concluído" : ""}
+                        <IcoItems
+                            title={item.title}
+                            isConcluded={index < currentStep - 1}
+                            isCurrentStep={index === currentStep - 1}
+                        />
+                        <h2 className="text-[color:var(--Dark,#272F33)] text-center text-md font-medium">
+                            {index < currentStep - 1 ? "Concluído" : ""}
                         </h2>
                     </div>
                 ))}
             </div>
 
-            <div className="flex flex-row justify-start items-top w-full h-full z-0 absolute -translate-y-7">
-                <img src={LineItems} alt="" className=" ml-20 w-[1027px] " />
+            <div
+                className="flex flex-row justify-start items-top w-full h-full z-0 absolute"
+                style={{ top: "-10px" }}
+            >
+                <img
+                    src={LineItems}
+                    alt="Linha de itens"
+                    className="ml-20 max-w-[1027px] h-auto "
+                />
             </div>
         </div>
     );

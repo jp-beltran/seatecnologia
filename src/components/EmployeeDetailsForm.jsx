@@ -1,121 +1,177 @@
-import React from "react";
-import { ConfigProvider, DatePicker, Form, Input, Radio, Select, Typography } from "antd";
+import {
+    ConfigProvider,
+    DatePicker,
+    Form,
+    Input,
+    Radio,
+    Select,
+    Typography,
+} from "antd";
+import InputMask from "react-input-mask";
+import {
+    validateName,
+    validateBirthDate,
+    validateRole,
+} from "../validators/validators";
 
 function EmployeeDetailsForm() {
-  return (
-    <ConfigProvider
-      theme={{
-        token: {
-          colorBorder: "#649FBF", 
-          borderRadius: 8,       
-          colorPrimary: "#649FBF", 
-          controlOutline: "#649FBF", 
-          controlBorderWidth: 2,  
-        },
-      }}
-    >
-      <div className="flex flex-row border-2 border-[color:var(--Default,#649FBF)] rounded-2xl p-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)]">
-        <Form className="flex flex-row w-full justify-between gap-8">
-          {/* Primeira Coluna */}
-          <div className="flex flex-col items-start justify-start gap-4 w-1/2">
-            
-            <Form.Item
-              name="name"
-              className="w-full"
-            >
-              <Typography.Title level={5}>Nome</Typography.Title>
-              <Input placeholder="Digite o nome" className="w-full" />
-            </Form.Item>
-
-            <Form.Item
-              name="cpf"
-              className="w-full"
-              rules={[
-                { required: true, message: "Por favor, insira o CPF!" },
-                {
-                  pattern: /^\d{3}\.\d{3}\.\d{3}-\d{2}$/,
-                  message: "Insira um CPF válido no formato 000.000.000-00!",
+    return (
+        <ConfigProvider
+            theme={{
+                token: {
+                    colorBorder: "#649FBF",
+                    borderRadius: 8,
+                    colorPrimary: "#649FBF",
+                    controlOutline: "#649FBF",
+                    controlBorderWidth: 2,
                 },
-              ]}
-            >
-                <Typography.Title level={5}>
-                  CPF
-                </Typography.Title>
-                <Input
-                    mask="999.999.999-99"
-                    placeholder="Digite o CPF"
-                    className="ant-input"
-                    style={{ borderColor: "#649FBF", borderRadius: "8px", width: "100%" }}
-                />
-            </Form.Item>
+            }}
+        >
+            <div className="flex flex-row border-2 border-[color:var(--Default,#649FBF)] rounded-2xl p-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)]">
+                <div className="flex flex-row w-full justify-between gap-8 items-start">
+                    <div className="flex flex-col items-start justify-start gap-2 w-1/2 h-full">
+                        {/* Nome */}
+                        <Typography.Title level={5}>Nome</Typography.Title>
+                        <Form.Item
+                            name="name"
+                            className="w-full"
+                            shouldUpdate
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Por favor, insira seu nome!",
+                                },
+                                { validator: validateName },
+                            ]}
+                        >
+                            <Input
+                                placeholder="Digite o nome"
+                                className="w-full"
+                            />
+                        </Form.Item>
 
-            <Form.Item
-              name="rg"
-              className="w-full"
-              rules={[
-                { required: true, message: "Por favor, insira o RG!" },
-                {
-                  pattern: /^\d{2}\.\d{3}\.\d{3}-\d{1}$/,
-                  message: "Insira um RG válido no formato 00.000.000-0!",
-                },
-              ]}
-            >
-                <Typography.Title level={5}> RG </Typography.Title>
-                <Input
-                    mask="9.999.999"
-                    placeholder="Digite o RG"
-                    className="ant-input"
-                    style={{ borderColor: "#649FBF", borderRadius: "8px", width: "100%" }}
-                />
-            </Form.Item>
-          </div>
+                        {/* CPF com máscara */}
+                        <Typography.Title level={5}>CPF</Typography.Title>
+                        <Form.Item
+                            name="cpf"
+                            className="w-full"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Por favor, insira seu CPF!",
+                                },
+                            ]}
+                        >
+                            <InputMask mask="999.999.999-99">
+                                {(inputProps) => (
+                                    <Input
+                                        {...inputProps}
+                                        placeholder="Digite o CPF"
+                                    />
+                                )}
+                            </InputMask>
+                        </Form.Item>
 
-          {/* Segunda Coluna */}
-          <div className="flex flex-col items-start justify-start gap-4 w-1/2 mt-3">
-            <Form.Item
-              name="gender"
-            >
-              <Typography.Title level={5}>Gênero</Typography.Title>
-              <Radio.Group className="">
-                <Radio value="Masculino">Masculino</Radio>
-                <Radio value="Feminino">Feminino</Radio>
-              </Radio.Group>
-            </Form.Item>
+                        <Typography.Title level={5}>RG</Typography.Title>
+                        <Form.Item
+                            name="rg"
+                            className="w-full"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Por favor, insira o RG!",
+                                },
+                            ]}
+                        >
+                            <InputMask mask="9.999.999  ">
+                                {(inputProps) => (
+                                    <Input
+                                        {...inputProps}
+                                        placeholder="Digite o RG"
+                                    />
+                                )}
+                            </InputMask>
+                        </Form.Item>
+                    </div>
 
-            <Form.Item
-              name="birthDate"
-              className="w-full"
-            >
-              <Typography.Title level={5}>Data de Nascimento</Typography.Title>
-              <DatePicker 
-                placeholder="Digite a data de nascimento" 
-                style={{
-                    width: "100%",
-                    borderColor: "#649FBF",
-                    borderRadius: "8px",
-                }}
-                format="DD/MM/YYYY"
-                
-                />
-            </Form.Item>
+                    <div className="flex flex-col items-start justify-start gap-[8px] w-1/2">
+                        <Typography.Title level={5}>Gênero</Typography.Title>
+                        <Form.Item
+                            name="gender"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "O Gênero deve ser selecionado",
+                                },
+                            ]}
+                        >
+                            <Radio.Group>
+                                <Radio value="Masculino">Masculino</Radio>
+                                <Radio value="Feminino">Feminino</Radio>
+                            </Radio.Group>
+                        </Form.Item>
 
-            <Form.Item
-              name="role"
-              className="w-full"
-            >
-                <Typography.Title level={5}>Cargo</Typography.Title>
-                <Select placeholder="Digite o cargo" >
-                    <Select.Option value="1">Operador de máquinas</Select.Option>
-                    <Select.Option value="2">Soldador</Select.Option>
-                    <Select.Option value="3">Eletricista</Select.Option>
-                    <Select.Option value="4">Pedreiro</Select.Option>
-                </Select>
-            </Form.Item>
-          </div>
-        </Form>
-      </div>
-    </ConfigProvider>
-  );
+                        <Typography.Title level={5}>
+                            Data de Nascimento
+                        </Typography.Title>
+                        <Form.Item
+                            name="birthDate"
+                            className="w-full"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Por favor, insira a data de nascimento!",
+                                },
+                                { validator: validateBirthDate },
+                            ]}
+                        >
+                            <DatePicker
+                                placeholder="Digite a data de nascimento"
+                                format={{
+                                    format: "DD/MM/YYYY",
+                                    type: "mask",
+                                }}
+                                style={{
+                                    width: "100%",
+                                    borderColor: "#649FBF",
+                                    borderRadius: "8px",
+                                }}
+                            />
+                        </Form.Item>
+
+                        <Typography.Title level={5}>Cargo</Typography.Title>
+                        <Form.Item
+                            name="role"
+                            className="w-full"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Por favor, selecione um cargo!",
+                                },
+                                { validator: validateRole },
+                            ]}
+                        >
+                            <Select placeholder="Selecione o cargo">
+                                <Select.Option value="1">
+                                    Operador de máquinas
+                                </Select.Option>
+                                <Select.Option value="2">
+                                    Soldador
+                                </Select.Option>
+                                <Select.Option value="3">
+                                    Eletricista
+                                </Select.Option>
+                                <Select.Option value="4">
+                                    Pedreiro
+                                </Select.Option>
+                            </Select>
+                        </Form.Item>
+                    </div>
+                </div>
+            </div>
+        </ConfigProvider>
+    );
 }
 
 export default EmployeeDetailsForm;

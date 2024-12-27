@@ -1,14 +1,40 @@
 {
-    "employees": [
-      { "id": "1", "isActive": true, "name": "Joao Pedro Beltran", "cpf": "062.804.651-01", "rg": "3.465.594", "gender": "M", "birthDate":"2000-04-21", "role": "cargo1", "epi": false, "medicalCertificate": ""},
-      { "id": "2", "isActive": false, "name": "Gabriela Beltran", "cpf": "032.843.213-34", "rg": "5.465.231", "gender": "F", "birthDate":"1990-12-15", "role": "cargo2", "epi": true, "medicalCertificate": "" }
-    ],
-    "epis": [
-      { "id": "1", "activity": "atividade1", "type": "calçado de segurança", "caNumber": "1236" },
-      { "id": "2", "activity": "atividade2", "type": "ccapacete", "caNumber": "8473" }
-    ],
-    "profile": {
-      "name": "typicode"
+  "employees": [
+    {
+      "id": "7ebf",
+      "name": "Lucas",
+      "cpf": "432.434.234-32",
+      "rg": "3.432.424  ",
+      "gender": "Masculino",
+      "birthDate": "2005-03-12T03:00:00.000Z",
+      "role": "3",
+      "isActive": true,
+      "medicalCertificate": null
+    },
+    {
+      "id": "5527",
+      "isActive": false,
+      "name": "Joao Pedro",
+      "cpf": "123.456.789-00",
+      "rg": "1.234.5678  ",
+      "gender": "Masculino",
+      "birthDate": "2005-04-08T03:00:00.000Z",
+      "role": "2",
+      "medicalCertificate": null
     }
+  ],
+  "epis": [
+    {
+      "id": "1",
+      "activity": "atividade1",
+      "type": "calçado de segurança",
+      "caNumber": "1236"
+    },
+    {
+      "id": "2",
+      "activity": "atividade2",
+      "type": "ccapacete",
+      "caNumber": "8473"
+    }
+  ]
 }
-  

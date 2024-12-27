@@ -16,18 +16,24 @@ const navItems = [
     { icon: Ico6, href: "/Page6" },
 ];
 
-function Sidebar({className}) {
+function Sidebar({ className }) {
     return (
-        <div className={`flex flex-col bg-[#4FA1C1] items-center rounded-r-3xl  ${className}`}>
+        <div
+            className={`flex flex-col bg-[#4FA1C1] items-center rounded-r-3xl  ${className} min-h-screen`}
+        >
             <Square />
-            <nav className="flex flex-col justify-center items-center h-full w-full gap-6 mt-12">
+            <nav className="flex flex-col justify-top mt-[168px]  h-full w-full gap-6 mt-12">
                 {navItems.map((item, index) => (
                     <Link
                         key={index}
                         to={item.href}
                         className="flex items-center justify-center w-full hover:border-l-4 hover:border-white"
                     >
-                        <img src={item.icon} alt={`icon ${index + 1}`} className="w-3.2 h-3.2" />
+                        <img
+                            src={item.icon}
+                            alt={`icon ${index + 1}`}
+                            className="w-3.2 h-3.2"
+                        />
                     </Link>
                 ))}
             </nav>

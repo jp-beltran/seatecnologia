@@ -2,23 +2,42 @@
 
 @tailwind base;
 @layer base {
-  :root {
-    font-family: "Ubuntu", serif;
+    :root {
+        font-family: "Ubuntu", serif;
 
-    --color-default: #578597;
-    --color-pure: #FFFFFF;
-    --color-medium-gray: #51656D;
-    --color-dark-gray: #3B4042;
-    --color-darker-dark-gray: #252F33;
-    --color-dark: #252F33;
-    --color-blue-20: #4FA1C2;
-    --color-light-gray: #D3D3D3;
-    --color-medium-light-gray: #A9A9A9;
-  }
+        --color-default: #578597;
+        --color-pure: #ffffff;
+        --color-medium-gray: #51656d;
+        --color-dark-gray: #3b4042;
+        --color-darker-dark-gray: #252f33;
+        --color-dark: #252f33;
+        --color-blue-20: #4fa1c2;
+        --color-light-gray: #d3d3d3;
+        --color-medium-light-gray: #a9a9a9;
+    }
 }
 
 .custom-select {
-  width: 100%; /* Define a largura do Select */
+    width: 100%; /* Define a largura do Select */
+}
+
+.ant-upload-select {
+    display: block !important;
+}
+.ant-upload-list-item-container {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border: 1px solid var(--color-blue-20);
+    padding: 10px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    color: var(--color-default ) !important;
+
+}
+.ant-upload-list-item {
+    margin-top: 0 !important;
+
 }
 
 @tailwind components;

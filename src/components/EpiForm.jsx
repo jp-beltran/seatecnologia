@@ -1,59 +1,82 @@
-import { Form, Checkbox, ConfigProvider, Button, Typography } from "antd";
+import { useState } from "react";
+import { Button, Checkbox, ConfigProvider, Typography } from "antd";
+import { useSelector, useDispatch } from "react-redux";
 import SelectActivity from "./SelectActivity";
+import { toggleCheckbox } from "../features/epiSlice/epiSlice";
 
 function EpiForm() {
-    const onFinish = (values) => {
-        console.log("Valores:", values);
+    const isChecked = useSelector((state) => state.epis.isChecked);
+    const showComponents = useSelector((state) => state.epis.showComponents);
+    const dispatch = useDispatch();
+
+    const [activitiesList, setActivitiesList] = useState([0]);
+
+    const addActivity = () => {
+        setActivitiesList((prevActivities) => [
+            ...prevActivities,
+            prevActivities.length,
+        ]);
+    };
+
+    const removeActivity = (index) => {
+        setActivitiesList((prevActivities) =>
+            prevActivities.filter((_, i) => i !== index)
+        );
+    };
+
+    const handleCheckboxChange = () => {
+        dispatch(toggleCheckbox());
     };
 
     return (
         <ConfigProvider
             theme={{
-                components: {
-                    Checkbox: {
-                        colorPrimary: '#649FBF', // Cor do preenchimento quando marcado
-                        colorBorder: '#649FBF', // Cor da borda do checkbox
-                    },
-                    Button: {
-                        colorPrimaryHover: "#4FA1C1", // Cor ao passar o mouse
-                        defaultColor: "#649FBF", 
-                        colorBorder: "#649FBF", 
-                        colorBgContainer: "transparent", 
-                        borderRadius: 10
-                      },
+                token: {
+                    colorPrimary: "#649FBF",
+                    borderRadius: 10,
+                    colorBorder: "#649FBF",
+                    colorBgContainer: "transparent",
+                    defaultColor: "#649FBF",
                 },
             }}
         >
-            <div className=" flex flex-col border-2 border-[color:var(--Default,#649FBF)] rounded-2xl p-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] w-full ">
-                <Form onFinish={onFinish}>
-                        <div className="flex flex-col items-start justify-start gap-4 ">
-                            <h1 className="text-[color:var(--Dark,#272F33)] text-base font-medium leading-[normal]">
-                                Quais EPIs o trabalhador usa na atividade?
-                            </h1>
-                            <Form.Item
-                                name="trabalhadorEPI"
-                                valuePropName="checked"
+            <div className="w-full border-2 border-[color:var(--Default,#649FBF)] rounded-2xl p-6">
+                <Typography.Title level={5}>
+                    Quais EPIs o trabalhador usa na atividade?
+                </Typography.Title>
+                <Checkbox
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
+                    style={{
+                        marginBottom: "10px",
+                        fontWeight: 600,
+                        display: "flex",
+                    }}
+                >
+                    O trabalhador não usa EPI
+                </Checkbox>
 
-                            >
-                                
-                                <Checkbox >
-                                    O trabalhador usa EPI
-                                </Checkbox>
-                                
-                                
-                            </Form.Item>
+                {showComponents &&
+                    activitiesList.map((_, index) => (
+                        <div key={index} className="mb-4">
+                            <SelectActivity
+                                onRemove={() => removeActivity(index)}
+                            />
                         </div>
+                    ))}
 
-                        <SelectActivity/>
-
-                        <Form.Item>
-                            <Button htmlType="onSubmit" className='w-full mt-6 border-2 ' >
-                                Adicionar outra atividade
-                            </Button>
-                    </Form.Item>
-                </Form>
-
-
+                {showComponents && (
+                    <Button
+                        onClick={addActivity}
+                        type="ghost"
+                        className="w-full mt-4"
+                        style={{
+                            border: "2px solid #649FBF",
+                        }}
+                    >
+                        Adicionar outra atividade
+                    </Button>
+                )}
             </div>
         </ConfigProvider>
     );
