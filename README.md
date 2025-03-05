@@ -1,41 +1,55 @@
-# AddEmployeeForm
+Visão Geral
+Este projeto, foi desenvolvido como parte de um processo seletivo da SeaTecnologia. Ele tem como objetivo criar um formulário completo para gerenciamento de funcionários, incluindo informações básicas, seleção de EPIs (Equipamentos de Proteção Individual) e anexos de atestados médicos.
 
-Este projeto implementa um formulário para adicionar funcionários. O formulário inclui campos para verificar se o funcionário está ativo, inserir detalhes pessoais, preencher informações sobre EPIs e anexar atestados médicos. É construído com Ant Design, React e utiliza configurações personalizadas via `ConfigProvider`. 🎨✨📋
+# Funcionalidades Principais
+## Formulário Dinâmico
 
-## Funcionalidades Principais
-- **Configuração Global de Tema**: Utiliza o `ConfigProvider` do Ant Design para definir temas globais, como cores primárias, bordas arredondadas e estilização de botões. 🌟
-- **Formulário Dinâmico**: Inclui múltiplos campos de entrada, como checkboxes, uploads e campos de texto, com validações e estilizações consistentes. ✅
-- **Upload de Arquivos**: Permite anexar documentos, como atestados médicos, com integração ao componente `Upload` do Ant Design. 📂
+- Coleta de dados pessoais (nome, CPF, RG, sexo).
+- Verificação de status “Ativo/Inativo” com um switch.
+- Upload de arquivos para anexar atestados médicos.
+- Seleção e gerenciamento de EPIs.
+  
+## Integração com Ant Design
+- Utilização de componentes prontos (Forms, Switch, Upload, Select etc.).
+- Personalização de tema global (cores, tamanho de bordas, botões) via ConfigProvider.
+  
+## Seleção de Atividades e EPIs
+- Campos para inserir atividades e EPIs relacionados.
+- Opção para incluir o número CA (Certificado de Aprovação) do EPI.
+  
+  ## Melhorias de UX
+- Máscara de input para CPF.
+- Botões com largura total para facilitar a interação.
+- Layout simples e intuitivo, facilitando a navegação.
 
-## Componentes
+# Estrutura dos Componentes
+## AddEmployeeForm
+Componente principal que reúne todos os subcomponentes:
 
-### AddEmployeeForm
-Este é o componente principal que:
-- Renderiza o cabeçalho com título e botão "Voltar".
-- Contém o formulário com os componentes filhos: `IsActive`, `EmployeeDetailsForm`, `EpiForm`, `MedicalCertificate`. 📝
-- Inclui um botão de submissão estilizado para "Salvar".
+Exibe um cabeçalho com título e botão "Voltar".
+Renderiza os campos de formulário (dados pessoais, EPIs, atestados).
+Possui um botão “Salvar” que finaliza o processo de cadastro.
+IsActive
 
-### IsActive
-Verifica se o trabalhador está ativo. Inclui um `Switch` do Ant Design com estilização personalizada. 🔄
+Utiliza um Switch para definir se o funcionário está ativo ou não.
+## EmployeeDetailsForm
 
-### EmployeeDetailsForm
-Formulário para coletar informações básicas do funcionário:
-- Nome
-- CPF (com máscara de input)
-- RG
-- Sexo (com botões de rádio estilizados) 🧑‍💼
+Coleta informações pessoais: nome, CPF, RG, sexo.
+Aplicação de máscara no campo CPF.
+## EpiForm
 
-### EpiForm
-Formulário para selecionar os Equipamentos de Proteção Individual (EPIs) que o trabalhador utiliza, incluindo um checkbox para casos em que nenhum EPI é usado. 🥾
+Formulário para selecionar EPIs utilizados.
+Inclui opção para “Nenhum EPI utilizado”.
+## MedicalCertificate
 
-### MedicalCertificate
-Permite anexar um atestado médico opcional usando o componente `Upload`. O botão para upload e o botão de submissão possuem largura total e estilização personalizada. 📋
+Permite upload de atestados médicos.
+Botão de upload e de submissão estilizados, com largura total.
+## SelectActivity
 
-### SelectActivity
-Formulário para seleção de atividades e EPIs:
-- Inclui `Select` para atividades e EPIs.
-- Campo de entrada para número do CA.
-- Botão para adicionar atividade com largura total. 🛠️
+Formulário para vincular atividades e EPIs.
+Campos para selecionar atividade, EPI e inserir o número CA.
+Botão "Adicionar atividade" com largura total.
+
 
 
 ## Requisitos
