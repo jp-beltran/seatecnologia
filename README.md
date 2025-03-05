@@ -1,4 +1,4 @@
-Visão Geral
+# Visão Geral
 Este projeto, foi desenvolvido como parte de um processo seletivo da SeaTecnologia. Ele tem como objetivo criar um formulário completo para gerenciamento de funcionários, incluindo informações básicas, seleção de EPIs (Equipamentos de Proteção Individual) e anexos de atestados médicos.
 
 # Funcionalidades Principais
